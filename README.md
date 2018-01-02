@@ -5,15 +5,19 @@ auto_rip is a Copyright of Corey Harrell (jIIr).
 
 ## Why was this created?
 I like the concept of auto_rip and have been using it for registry analysis. 
-However, it had not been updated for two (2) years. In the meantime, Harlen Carvey had 
-released new regripper plugins that were not executed as part of auto_rip.
+However, it had not been updated for two (2) years. In the meantime, Harlen Carvey (and others) 
+had released new regripper plugins that were not executed as part of auto_rip.
 
 This was written in Python because of my familiarity with the language. It was also re-written
 in such a way that users can easily update the supported plugins or their categories 
 in `plugin_categories.py` without programming knowledge.
 
 ## Dependencies
-Python 2.7
+1. Python 2.7
+2. Perl
+3. Parse::Win32Registry perl module
+
+Regripper's rip.pl is used instead of rip.exe due to some discrepancies in the latter's output
 
 ## Usage
 See `python autoripy.py -h`
