@@ -39,19 +39,21 @@ OS = ["General Information about the Operating System and its Configuration",
 USERS = ["User Account Information",
          u"02_user_account_information.txt",
          [None, 'sam', 'samparse'],
-         [None, 'software', 'profilelist']]
+         [None, 'software', 'profilelist'],
+         [None, 'ntuser', 'logonstats']]  # added 2018-01-30
 
 SOFTWARE = ["Installed Software Information",
             u"03_installed_software_information.txt",
             [None, 'software', 'updates'],  # added 2017-12-22
             [None, 'software', 'uninstall'],
             [None, 'software', 'apppaths'],
-            [None, 'software', 'assoc'],
             [None, 'software', 'installedcomp'],
             [None, 'software', 'msis'],
             [None, 'software', 'product'],
             [None, 'software', 'installer'],
             [None, 'software', 'clsid'],
+            [None, 'software', 'assoc'],
+            [None, 'usrclass', 'assoc'],  # added 2018-01-30
             [None, 'ntuser', 'listsoft'],
             [None, 'ntuser', 'fileexts'],
             [None, 'ntuser', 'arpcache'],
