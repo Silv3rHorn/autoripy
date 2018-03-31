@@ -109,6 +109,7 @@ EXECUTION = ["Program Execution Information",
              [None, 'system', 'prefetch'],
              # [None, 'system', 'appcompatcache'],  # removed 2017-12-22 (does not parse all controlsets)
              [None, 'system', 'shimcache'],  # added 2017-12-22
+             [None, 'system', 'bam'],  # added 2017-03-31
              [None, 'system', 'legacy'],
              [None, 'software', 'tracing'],
              [None, 'software', 'at'],
