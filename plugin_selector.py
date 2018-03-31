@@ -60,16 +60,17 @@ def _validate_input(options):
         HIVE_PATH['usrclass'] = os.path.join(options.usrclass, u'UsrClass.DAT')
 
     # validate multiple
-    subdirs = [x[0] for x in os.walk(options.multiple)]
-    for subdir in subdirs:
-        path_ntuser = os.path.join(subdir, u'NTUSER.DAT')
-        path_usrclass = os.path.join(subdir, u'UsrClass.DAT')
-        if os.path.isfile(path_ntuser):
-            VALID_HIVES.add('multiple')
-            NTUSER_PATH[os.path.basename(subdir)] = path_ntuser
-        if os.path.isfile(path_usrclass):
-            VALID_HIVES.add('multiple')
-            USRCLASS_PATH[os.path.basename(subdir)] = path_usrclass
+    if options.multiple is not None:
+        subdirs = os.listdir(options.multiple)
+        for subdir in subdirs:
+            path_ntuser = os.path.join(options.multiple, subdir, u'NTUSER.DAT')
+            path_usrclass = os.path.join(options.multiple, subdir, u'UsrClass.DAT')
+            if os.path.isfile(path_ntuser):
+                VALID_HIVES.add('multiple')
+                NTUSER_PATH[os.path.basename(subdir)] = path_ntuser
+            if os.path.isfile(path_usrclass):
+                VALID_HIVES.add('multiple')
+                USRCLASS_PATH[os.path.basename(subdir)] = path_usrclass
 
     for key in HIVE_PATH:
         HIVE_PATH[key] = '"' + HIVE_PATH[key] + '"'
@@ -165,13 +166,18 @@ def get_selection():
         'path to the folder containing the NTUSER.DAT hive.'))
     argument_parser.add_argument('-u', '--usrclass', default=os.getcwd(), help=(
         'path to the folder containing the UsrClass.dat hive.'))
-    argument_parser.add_argument('-m', '--multiple', default=os.getcwd(), help=(
+    argument_parser.add_argument('-m', '--multiple', help=(
         'path to the folder containing multiple <User>\\NTUSER.DAT and/or <User>\\NTUSER.DAT.'))
     argument_parser.add_argument('-r', '--reportdir', default=os.getcwd(), help=(
         'path to the folder to store the output reports.'))
     argument_parser.add_argument('-c', '--cat', default='all', help=(
         'specifies the plugin categories to run. Separate multiple categories with a comma.'))
     options = argument_parser.parse_args()
+
+    for path in dir(options):
+        if not path.startswith('__') and not callable(getattr(options, path)):
+            if path != 'cat' and getattr(options, path) is not None:
+                setattr(options, path, os.path.abspath(getattr(options, path)))
 
     if not _validate_input(options):
         return False

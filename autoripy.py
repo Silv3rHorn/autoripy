@@ -38,7 +38,7 @@ def _run_regripper(cat, valid_hives, report_file, hive_path=ps.HIVE_PATH):
                 p = subprocess.Popen(cmd, stdout=outfile, stderr=subprocess.PIPE)
                 stderr = p.communicate()
                 if stderr:
-                    logging.info(stderr[1].rstrip('\r\n'))
+                    logging.info('\t' + stderr[1].rstrip('\r\n'))
 
                 outfile.write(u'.' * 107)
                 outfile.write(u'\r\n.\r\n')
@@ -64,8 +64,8 @@ def run_autorip(options):
         users = set(ps.NTUSER_PATH.keys()) | set(ps.USRCLASS_PATH.keys())  # merge keys in two dicts
         for user in users:
             for cat in options.cat:
-                print("---- Processing {}'s {} category".format(user, cat))
-                logging.info("---- Processing the {}'s {} category".format(user, cat))
+                print("---- Processing {0}'s {1} category".format(user, cat))
+                logging.info("---- Processing the {0}'s {1} category".format(user, cat))
 
                 # create output dir
                 if not os.path.isdir(os.path.join(options.reportdir, user)):
@@ -93,6 +93,9 @@ def main():
     global LOG_FILE
     LOG_FILE = os.path.join(options.reportdir, "_autoripy_log.{}.txt".format(date_timestamp.strftime("%Y-%m-%d@%H%M%S")))
     logging.basicConfig(filename=LOG_FILE, level=logging.INFO, format=u'%(message)s')
+    for arg in dir(options):
+        if not arg.startswith('__') and not callable(getattr(options, arg)):
+            logging.info(u"{0}:\t{1}".format(arg, getattr(options, arg)))
 
     run_autorip(options)
 
