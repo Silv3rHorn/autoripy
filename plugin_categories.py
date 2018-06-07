@@ -146,6 +146,7 @@ AUTORUNS = ["Autostart Locations Information",
             [None, 'software', 'shellext'],
             [None, 'software', 'schedagent'],
             [None, 'software', 'psscript'],  # added 2017-12-22
+            [None, 'software', 'silentprocessexit'],  # added 2018-06-07
             [None, 'system', 'appcertdlls'],
             [None, 'system', 'lsa_packages'],
             [None, 'system', 'safeboot'],
