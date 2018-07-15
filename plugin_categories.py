@@ -7,8 +7,9 @@
 OS = ["General Information about the Operating System and its Configuration",
       u"01_operating_system_information.txt",
       [None, 'software', 'winnt_cv'],
+      [None, 'system', 'source_os'],  # added 2018-07-15
       [None, 'system', 'producttype'],
-      [None, 'software', 'win_cv'],  # fixed bug 2017-22-31 (system -> software)
+      [None, 'software', 'win_cv'],
       [None, 'system', 'timezone'],
       [None, 'system', 'shutdown'],
       [None, 'system', 'shutdowncount'],
@@ -17,13 +18,13 @@ OS = ["General Information about the Operating System and its Configuration",
       [None, 'software', 'lastloggedon'],  # added 2017-12-22
       [None, 'software', 'uac'],
       [None, 'software', 'disablesr'],
-      [None, 'system', 'diag_sr'],  # fixed bug 2017-22-31 (software -> system)
+      [None, 'system', 'diag_sr'],
       [None, 'software', 'spp_clients'],
       [None, 'system', 'backuprestore'],
       [None, 'software', 'winbackup'],
       [None, 'software', 'bitbucket'],
       [None, 'system', 'disablelastaccess'],
-      [None, 'software', 'dfrg'],  # fixed bug 2017-22-31 (system -> software)
+      [None, 'software', 'dfrg'],
       [None, 'software', 'secctr'],
       [None, 'system', 'pagefile'],
       [None, 'system', 'hibernate'],
@@ -53,6 +54,7 @@ SOFTWARE = ["Installed Software Information",
             [None, 'software', 'installer'],
             [None, 'software', 'clsid'],
             [None, 'software', 'assoc'],
+            [None, 'software', 'execpolicy'],  # added 2018-07-15
             [None, 'usrclass', 'assoc'],  # added 2018-01-30
             [None, 'ntuser', 'listsoft'],
             [None, 'ntuser', 'fileexts'],
@@ -92,7 +94,7 @@ STORAGE = ["Storage information",
            [None, 'system', 'emdmgmt'],
            [None, 'system', 'wpdbusenum'],
            [None, 'system', 'bthport'],
-           [None, 'software', 'btconfig'],  # fixed bug 2017-22-31 (system -> software)
+           [None, 'software', 'btconfig'],
            [None, 'system', 'imagedev'],
            [None, 'system', 'stillimage'],
            [None, 'ntuser', 'mp2'],
@@ -123,6 +125,7 @@ EXECUTION = ["Program Execution Information",
              [None, 'ntuser', 'userassist'],
              [None, 'ntuser', 'appcompatflags'],
              [None, 'ntuser', 'recentapps'],
+             [None, 'ntuser', 'jumplistdata'],  # added 2018-07-15
              [None, 'ntuser', 'cain'],  # added 2017-12-22
              [None, 'ntuser', 'mixer']]
 
@@ -203,6 +206,7 @@ WEB = ["Web Browsing Information",
        ["Internet Explorer Related", 'ntuser', 'domains'],
        ["Internet Explorer Related", 'ntuser', 'typedurls'],
        ["Internet Explorer Related", 'ntuser', 'typedurlstime'],  # added 2017-12-22
+       ["Internet Explorer Related", 'usrclass', 'msedge_win10'],  # added 2017-12-22
        ["Internet Explorer Related", 'ntuser', 'ie_zones']]
 
 USER_CONFIG = ["User Account Configuration Information",
@@ -210,6 +214,7 @@ USER_CONFIG = ["User Account Configuration Information",
                [None, 'ntuser', 'shellfolders'],
                [None, 'ntuser', 'policies_u'],
                [None, 'ntuser', 'environment'],
+               [None, 'ntuser', 'nation'],  # added 2018-07-15
                [None, 'ntuser', 'userinfo'],
                [None, 'ntuser', 'vista_bitbucket'],
                [None, 'ntuser', 'autorun'],
@@ -223,6 +228,7 @@ USER_CONFIG = ["User Account Configuration Information",
                [None, 'ntuser', 'printermru'],  # added 2017-12-22
                ["User Software Related Information", 'ntuser', 'ccleaner'],
                ["User Software Related Information", 'ntuser', 'sysinternals'],
+               ["User Software Related Information", 'ntuser', 'eraser'],  # added 2018-07-15
                ["User Network Settings Information", 'ntuser', 'logonusername'],
                ["User Network Settings Information", 'ntuser', 'ntusernetwork'],
                ["User Network Settings Information", 'ntuser', 'printers'],
@@ -260,17 +266,17 @@ USER_FILE = ["User Account File/Folder Access Activity",
              u"15_user-account-file-access-activity.txt",
              [None, 'usrclass', 'shellbags'],
              [None, 'ntuser', 'shellbags'],
-             [None, 'ntuser', 'shellbags_xp'],  # added 20171222
+             [None, 'ntuser', 'shellbags_xp'],  # added 2017-12-22
              [None, 'ntuser', 'itempos'],
              [None, 'ntuser', 'comdlg32'],
              [None, 'ntuser', 'recentdocs'],
              [None, 'ntuser', 'winzip'],
-             # [None, 'ntuser', 'winrar'],  # removed 20171222 (winrar2 is more updated)
-             [None, 'ntuser', 'winrar2'],  # added 20171222
+             # [None, 'ntuser', 'winrar'],  # removed 2017-12-22 (winrar2 is more updated)
+             [None, 'ntuser', 'winrar2'],  # added 2017-12-22
              [None, 'ntuser', 'sevenzip'],
              [None, 'ntuser', 'mspaper'],
              [None, 'ntuser', 'nero'],
-             [None, 'usrclass', 'photos'],
+             [None, 'ntuser', 'imgburn1'],
              ["Microsoft Office Files Accessed", 'ntuser', 'officedocs'],
              ["Microsoft Office Files Accessed", 'ntuser', 'officedocs2010'],
              ["Microsoft Office Files Accessed", 'ntuser', 'reading_locations'],
@@ -278,7 +284,9 @@ USER_FILE = ["User Account File/Folder Access Activity",
              ["Microsoft Office Files Accessed", 'ntuser', 'trustrecords'],
              ["Microsoft Office Files Accessed", 'ntuser', 'snapshot_viewer'],
              ["Adobe Files Accessed", 'ntuser', 'adoberdr'],
-             ["Adobe Files Accessed", 'ntuser', "Adobe Files Accessed", 'foxitrdr'],  # added 20171222
+             ["Adobe Files Accessed", 'ntuser', "Adobe Files Accessed", 'foxitrdr'],  # added 2017-12-22
+             ["Multimedia Files Accessed", 'usrclass', 'photos'],
+             ["Multimedia Files Accessed", 'usrclass', 'photos_win10'],  # added 2018-07-15
              ["Multimedia Files Accessed", 'ntuser', 'wallpaper'],
              ["Multimedia Files Accessed", 'ntuser', 'mpmru'],
              ["Multimedia Files Accessed", 'ntuser', 'realplayer6']]
@@ -291,11 +299,11 @@ USER_VIRTUAL = ["User Account Virtualization Access Activity",
 COMM = ["Communication Software Information",
         u"17_communications_information.txt",
         ["Email Communication Information", 'ntuser', 'outlook'],
-        ["Email Communication Information", 'ntuser', 'outlook2'],  # added 20171222
+        ["Email Communication Information", 'ntuser', 'outlook2'],  # added 2017-12-22
         ["Email Communication Information", 'ntuser', 'olsearch'],
         ["Email Communication Information", 'ntuser', 'unreadmail'],
         ["Telecommunications Information", 'ntuser', 'skype'],
         ["Messaging Communication Information", 'ntuser', 'aim'],
         ["Messaging Communication Information", 'ntuser', 'liveContactsGUID'],
-        ["Messaging Communication Information", 'ntuser', 'yahoo_lm'],  # added 20171222
+        ["Messaging Communication Information", 'ntuser', 'yahoo_lm'],  # added 2017-12-22
         ["Messaging Communication Information", 'ntuser', 'yahoo_cu']]
