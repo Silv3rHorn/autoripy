@@ -15,9 +15,9 @@ in `plugin_categories.py` without programming knowledge.
 ## Dependencies
 1. Python 2.7
 2. Perl
-3. Parse::Win32Registry perl module
+3. `Parse::Win32Registry` perl module
 
-Regripper's rip.pl is used instead of rip.exe due to some discrepancies in the latter's output
+Regripper's `rip.pl` is used instead of `rip.exe` due to some discrepancies in the latter's output
 
 ## Usage
 See `python autoripy.py -h`
