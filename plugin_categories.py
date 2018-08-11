@@ -108,7 +108,6 @@ DEVICE = ["Device Information",
 
 EXECUTION = ["Program Execution Information",
              u"07_program_execution_information.txt",
-             [None, 'system', 'prefetch'],
              # [None, 'system', 'appcompatcache'],  # removed 2017-12-22 (does not parse all controlsets)
              [None, 'system', 'shimcache'],  # added 2017-12-22
              [None, 'system', 'bam'],  # added 2017-03-31
@@ -126,6 +125,7 @@ EXECUTION = ["Program Execution Information",
              [None, 'ntuser', 'appcompatflags'],
              [None, 'ntuser', 'recentapps'],
              [None, 'ntuser', 'jumplistdata'],  # added 2018-07-15
+             [None, 'ntuser', 'shellactivities'],  # added 2018-08-11
              [None, 'ntuser', 'cain'],  # added 2017-12-22
              [None, 'ntuser', 'mixer']]
 
@@ -223,6 +223,8 @@ USER_CONFIG = ["User Account Configuration Information",
                [None, 'ntuser', 'winlogon_u'],
                [None, 'ntuser', 'user_win'],
                [None, 'ntuser', 'gpohist'],
+               [None, 'system', 'prefetch'],
+               [None, 'ntuser', 'disablemru'],  # added 2018-08-11
                [None, 'ntuser', 'bitbucket_user'],  # added 2017-12-22
                [None, 'ntuser', 'filehistory'],  # added 2017-12-22
                [None, 'ntuser', 'printermru'],  # added 2017-12-22
