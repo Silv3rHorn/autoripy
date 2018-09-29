@@ -125,7 +125,7 @@ EXECUTION = ["Program Execution Information",
              [None, 'ntuser', 'appcompatflags'],
              [None, 'ntuser', 'recentapps'],
              [None, 'ntuser', 'jumplistdata'],  # added 2018-07-15
-             [None, 'ntuser', 'shellactivities'],  # added 2018-08-11
+             # [None, 'ntuser', 'shellactivities'],  # added 2018-08-11
              [None, 'ntuser', 'cain'],  # added 2017-12-22
              [None, 'ntuser', 'mixer']]
 
@@ -150,6 +150,7 @@ AUTORUNS = ["Autostart Locations Information",
             [None, 'software', 'schedagent'],
             [None, 'software', 'psscript'],  # added 2017-12-22
             [None, 'software', 'silentprocessexit'],  # added 2018-06-07
+            [None, 'software', 'appkeys'],  # added 2018-09-29
             [None, 'system', 'appcertdlls'],
             [None, 'system', 'lsa_packages'],
             [None, 'system', 'safeboot'],
@@ -162,6 +163,7 @@ AUTORUNS = ["Autostart Locations Information",
             [None, 'ntuser', 'startup'],
             [None, 'ntuser', 'cached'],
             [None, 'ntuser', 'profiler'],
+            [None, 'ntuser', 'appkeys'],  # added 2018-09-29
             [None, 'usrclass', 'cmd_shell_u']]
 
 LOG = ["Logging Information",
@@ -183,6 +185,7 @@ MALWARE = ["Malware Indicators",
            [None, 'software', 'inprocserver'],
            [None, 'software', 'fileless'],
            [None, 'software', 'malware'],  # added 2017-12-22
+           [None, 'software', 'wsh_settings.pl'],  # added 2018-09-29
            [None, 'ntuser', 'cpldontload'],
            [None, 'ntuser', 'fileless'],
            [None, 'ntuser', 'malware'],  # added 2017-12-22
