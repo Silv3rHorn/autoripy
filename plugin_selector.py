@@ -146,7 +146,7 @@ def get_selection():
         '\t autoripy -n H:\\Users\\Corey -u H:\\Users\\Corey\\AppData\\Local\\Microsoft\\Windows -c user_file\n\n'
 
         '\t Extract all information from all Windows registry hives without using -c switch.\n'
-        '\t autoripy -s H:\\Windows\\System32\\config -a H:\\Windows\\AppCompat\\Programs\ -n H:\\Users\\Corey '
+        '\t autoripy -s H:\\Windows\\System32\\config -a H:\\Windows\\AppCompat\\Programs -n H:\\Users\\Corey '
         '-u H:\\Users\\Corey\\AppData\\Local\\Microsoft\\Windows\n\n'
 
         '\t Extract all information from the SAM, Security, Software and System hives, then store output reports '
@@ -155,7 +155,7 @@ def get_selection():
         
         '\t Extract all information from the SAM, Security, Software and System hives, NTUSER.DAT and UsrClass.dat '
         'from each user in separate directories, then store output reports in a specified directory.\n'
-        '\t autoripy -s H:\\hives -m H:\\hives\Users -r C:\\reports'), formatter_class=RawTextHelpFormatter)
+        '\t autoripy -s H:\\hives -m H:\\hives\\Users -r C:\\reports'), formatter_class=RawTextHelpFormatter)
 
     argument_parser.add_argument('--rr', default=os.getcwd(), help='path to the folder containing RegRipper.')
     argument_parser.add_argument('-s', '--system', default=os.getcwd(), help=(
@@ -167,7 +167,7 @@ def get_selection():
     argument_parser.add_argument('-u', '--usrclass', default=os.getcwd(), help=(
         'path to the folder containing the UsrClass.dat hive.'))
     argument_parser.add_argument('-m', '--multiple', help=(
-        'path to the folder containing multiple <User>\\NTUSER.DAT and/or <User>\\NTUSER.DAT.'))
+        'path to the folder containing multiple <User>\\NTUSER.DAT and/or <User>\\UsrClass.DAT.'))
     argument_parser.add_argument('-r', '--reportdir', default=os.getcwd(), help=(
         'path to the folder to store the output reports.'))
     argument_parser.add_argument('-c', '--cat', default='all', help=(

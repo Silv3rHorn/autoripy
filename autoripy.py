@@ -36,9 +36,9 @@ def _run_regripper(cat, valid_hives, report_file, hive_path=ps.HIVE_PATH):
 
                 cmd = u"perl -I. rip.pl -r " + hive_path[plugin[1]] + u' -p ' + plugin[2]
                 p = subprocess.Popen(cmd, stdout=outfile, stderr=subprocess.PIPE)
-                stderr = p.communicate()
+                stderr = p.communicate()[1].decode('utf-8')
                 if stderr:
-                    logging.info('\t' + stderr[1].rstrip('\r\n'))
+                    logging.info('\t' + stderr.rstrip('\r\n'))
 
                 outfile.write(u'.' * 107)
                 outfile.write(u'\r\n.\r\n')
