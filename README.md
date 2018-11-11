@@ -1,4 +1,6 @@
 # autoripy
+![](https://img.shields.io/badge/python-2.7-blue.svg) ![](https://img.shields.io/badge/python-3.7-blue.svg)
+
 autoripy is an attempt to replicate the functions of auto_rip by Corey Harrell in Python.
 auto_rip automates the execution of RegRipper according to an examination process.
 auto_rip is a Copyright of Corey Harrell (jIIr).
@@ -13,7 +15,7 @@ in such a way that users can easily update the supported plugins or their catego
 in `plugin_categories.py` without programming knowledge.
 
 ## Dependencies
-1. Python 2.7
+1. Python 2.7 or 3.7
 2. Perl
 3. `Parse::Win32Registry` perl module
 
