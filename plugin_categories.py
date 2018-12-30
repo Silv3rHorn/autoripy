@@ -174,6 +174,8 @@ LOG = ["Logging Information",
        [None, 'system', 'eventlog'],
        [None, 'system', 'eventlogs'],
        [None, 'software', 'winevt'],
+       [None, 'software', 'pslogging'],  # added 2018-12-30
+       [None, 'ntuser', 'pslogging'],  # added 2018-12-30
        [None, 'system', 'auditfail'],
        [None, 'software', 'drwatson']]
 
