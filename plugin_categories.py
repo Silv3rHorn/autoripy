@@ -34,6 +34,7 @@ OS = ["General Information about the Operating System and its Configuration",
       [None, 'software', 'ctrlpnl'],
       [None, 'software', 'banner'],
       [None, 'system', 'nolmhash'],
+      [None, 'system', 'netlogon'],  # added 20190414
       [None, 'software', 'susclient'],
       [None, 'software', 'gpohist']]
 
@@ -112,6 +113,7 @@ EXECUTION = ["Program Execution Information",
              [None, 'system', 'shimcache'],  # added 2017-12-22
              [None, 'system', 'bam'],  # added 2017-03-31
              [None, 'system', 'legacy'],
+             [None, 'system', 'prefetch'],
              [None, 'software', 'tracing'],
              [None, 'software', 'at'],
              [None, 'software', 'direct'],
@@ -228,7 +230,6 @@ USER_CONFIG = ["User Account Configuration Information",
                [None, 'ntuser', 'winlogon_u'],
                [None, 'ntuser', 'user_win'],
                [None, 'ntuser', 'gpohist'],
-               [None, 'system', 'prefetch'],
                [None, 'ntuser', 'disablemru'],  # added 2018-08-11
                [None, 'ntuser', 'bitbucket_user'],  # added 2017-12-22
                [None, 'ntuser', 'filehistory'],  # added 2017-12-22
