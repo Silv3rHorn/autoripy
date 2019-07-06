@@ -57,6 +57,7 @@ SOFTWARE = ["Installed Software Information",
             [None, 'software', 'assoc'],
             [None, 'software', 'execpolicy'],  # added 2018-07-15
             [None, 'usrclass', 'assoc'],  # added 2018-01-30
+            [None, 'ntuser', 'appassoc'],  # added 2019-07-06
             [None, 'ntuser', 'listsoft'],
             [None, 'ntuser', 'fileexts'],
             [None, 'ntuser', 'arpcache'],
