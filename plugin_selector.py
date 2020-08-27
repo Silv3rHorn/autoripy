@@ -140,24 +140,26 @@ def get_selection():
 
         'Usage: \n'
         '\t Extract all information from the SAM, Security, Software, and System hives.\n'
-        '\t autoripy -s H:\\Windows\\System32\\config -c all\n\n'
+        '\t autoripy C:\\regripper -s H:\\Windows\\System32\\config -c all\n\n'
 
         '\t Extract file access information from NTUSER.DAT and UsrClass.dat hive (Windows 7 profile)\n'
-        '\t autoripy -n H:\\Users\\Corey -u H:\\Users\\Corey\\AppData\\Local\\Microsoft\\Windows -c user_file\n\n'
+        '\t autoripy C:\\regripper -n H:\\Users\\Corey -u H:\\Users\\Corey\\AppData\\Local\\Microsoft\\Windows '
+        '-c user_file\n\n'
 
         '\t Extract all information from all Windows registry hives without using -c switch.\n'
-        '\t autoripy -s H:\\Windows\\System32\\config -a H:\\Windows\\AppCompat\\Programs -n H:\\Users\\Corey '
-        '-u H:\\Users\\Corey\\AppData\\Local\\Microsoft\\Windows\n\n'
+        '\t autoripy C:\\regripper -s H:\\Windows\\System32\\config -a H:\\Windows\\AppCompat\\Programs '
+        '-n H:\\Users\\Corey -u H:\\Users\\Corey\\AppData\\Local\\Microsoft\\Windows\n\n'
 
         '\t Extract all information from the SAM, Security, Software and System hives, then store output reports '
         'in a specified directory.\n'
-        '\t autoripy -s H:\\Windows\\System32\\config -r C:\\reports\n\n'
+        '\t autoripy C:\\regripper -s H:\\Windows\\System32\\config -r C:\\reports\n\n'
         
         '\t Extract all information from the SAM, Security, Software and System hives, NTUSER.DAT and UsrClass.dat '
         'from each user in separate directories, then store output reports in a specified directory.\n'
-        '\t autoripy -s H:\\hives -m H:\\hives\\Users -r C:\\reports'), formatter_class=RawTextHelpFormatter)
+        '\t autoripy C:\\regripper -s H:\\hives -m H:\\hives\\Users -r C:\\reports'),
+        formatter_class=RawTextHelpFormatter)
 
-    argument_parser.add_argument('--rr', default=os.getcwd(), help='path to the folder containing RegRipper.')
+    argument_parser.add_argument('rr', nargs='?', default=None, help='path to the folder containing RegRipper.')
     argument_parser.add_argument('-s', '--system', default=os.getcwd(), help=(
         'path to the folder containing the SAM, Security, Software, and System hives.'))
     argument_parser.add_argument('-a', '--amcache', default=os.getcwd(), help=(
