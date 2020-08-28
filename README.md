@@ -1,5 +1,5 @@
 # autoripy
-![](https://img.shields.io/badge/python-3.7-blue.svg)
+![](https://img.shields.io/badge/python-3-blue.svg)
 
 autoripy is an attempt to replicate the functions of auto_rip by Corey Harrell in Python.
 auto_rip automates the execution of RegRipper according to an examination process.
