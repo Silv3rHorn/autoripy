@@ -19,6 +19,9 @@ def _validate_input(options):
     global USRCLASS_PATH
 
     # validate regripper executable
+    if options.rr is None:
+        print("RegRipper path was not provided.")
+        return False
     if not os.path.isfile(os.path.join(options.rr, u'rip.exe')):
         print("Regripper {} does not exist.".format(os.path.join(options.rr, u'rip.exe')))
         return False
