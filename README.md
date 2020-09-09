@@ -16,6 +16,7 @@ in `plugin_categories.py` without programming knowledge.
 
 ## Dependencies
 1. Python 3
+2. yarp - `pip3 install https://github.com/msuhanov/yarp/archive/1.0.31.tar.gz`
 
 or use the [release executable](https://github.com/Silv3rHorn/autoripy/releases)
 
