@@ -9,6 +9,7 @@ import plugin_categories as pc
 import plugin_selector as ps
 
 from datetime import datetime as dt
+from yarp import Registry
 
 LOG_FILE = ''
 
@@ -85,18 +86,86 @@ def run_autorip(options):
                 _run_regripper(cat, valid_hives, report_file, hive_path)
 
 
+def _flush(path):
+    log_paths = list()
+    log_paths.append(path + '.LOG')
+    log_paths.append(path + '.LOG1')
+    log_paths.append(path + '.LOG2')
+
+    # check if each transaction log exists
+    for idx in range(len(log_paths)):
+        if not os.path.isfile(log_paths[idx]):
+            log_paths[idx] = None
+
+    # if log path is invalid or no transaction logs at log path exists
+    if log_paths[0] is None and log_paths[1] is None and log_paths[2] is None:
+        print("Flush failed (no logs)        - {}".format(path))
+        logging.info("Flush failed (no logs)        - {}".format(path))
+        return 1
+
+    with open(path, 'rb') as hive:
+        yarp_hive = Registry.RegistryHive(hive)
+
+        log = []
+        for log_path in log_paths:
+            if log_path is None:
+                log.append(None)
+            else:
+                log.append(open(log_path, 'rb'))
+        result = yarp_hive.recover_auto(log[0], log[1], log[2])
+
+    if result.recovered:
+        print("Flush successful              - {}".format(path))
+        logging.info("Flush successful              - {}".format(path))
+        outfile = os.path.join(path)
+        os.rename(outfile, outfile + '.old')  # backup original file
+        yarp_hive.save_recovered_hive(outfile)
+    elif result.is_new_log is None:
+        print("Flush failed (no new data)    - {}".format(path))
+        logging.info("Flush failed (no new data) - {}".format(path))
+    elif not result.recovered:
+        print("Flush failed (unknown reason) - {}".format(path))
+        logging.info("Flush failed (unknown reason) - {}".format(path))
+
+    for file in log:
+        if file is not None:
+            file.close()
+
+
+def run_flush():
+    print('\n')
+    logging.info('\n')
+
+    for key, path in ps.HIVE_PATH.items():
+        _flush(path.replace('"', ''))
+
+    for key, path in ps.NTUSER_PATH.items():
+        _flush(path.replace('"', ''))
+
+    for key, path in ps.USRCLASS_PATH.items():
+        _flush(path.replace('"', ''))
+
+    print('\n')
+    logging.info('\n')
+
+
 def main():
     options = ps.get_selection()
     if not options:
         return False
 
     date_timestamp = dt.now()
+
     global LOG_FILE
     LOG_FILE = os.path.join(options.reportdir, "_autoripy_log.{}.txt".format(date_timestamp.strftime("%Y-%m-%d@%H%M%S")))
     logging.basicConfig(filename=LOG_FILE, level=logging.INFO, format=u'%(message)s')
+
     for arg in dir(options):
         if not arg.startswith('__') and not callable(getattr(options, arg)):
             logging.info(u"{0}:\t{1}".format(arg, getattr(options, arg)))
+
+    if options.flush:
+        run_flush()
 
     run_autorip(options)
 

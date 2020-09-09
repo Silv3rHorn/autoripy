@@ -144,6 +144,9 @@ def get_selection():
         'Usage: \n'
         '\t Extract all information from the SAM, Security, Software, and System hives.\n'
         '\t autoripy C:\\regripper -s H:\\Windows\\System32\\config -c all\n\n'
+        
+        '\t Flush all transaction logs + Extract all information from the SAM, Security, Software, and System hives.\n'
+        '\t autoripy C:\\regripper -s H:\\Windows\\System32\\config -c all --flush\n\n'
 
         '\t Extract file access information from NTUSER.DAT and UsrClass.dat hive (Windows 7 profile)\n'
         '\t autoripy C:\\regripper -n H:\\Users\\Corey -u H:\\Users\\Corey\\AppData\\Local\\Microsoft\\Windows '
@@ -177,11 +180,12 @@ def get_selection():
         'path to the folder to store the output reports.'))
     argument_parser.add_argument('-c', '--cat', default='all', help=(
         'specifies the plugin categories to run. Separate multiple categories with a comma.'))
+    argument_parser.add_argument('--flush', action='store_true', help="flush transaction logs.")
     options = argument_parser.parse_args()
 
     for path in dir(options):
         if not path.startswith('__') and not callable(getattr(options, path)):
-            if path != 'cat' and getattr(options, path) is not None:
+            if path not in ('cat', 'flush') and getattr(options, path) is not None:
                 setattr(options, path, os.path.abspath(getattr(options, path)))
 
     if not _validate_input(options):

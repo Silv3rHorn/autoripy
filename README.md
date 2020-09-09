@@ -15,7 +15,7 @@ in such a way that users can easily update the supported plugins or their catego
 in `plugin_categories.py` without programming knowledge.
 
 ## Dependencies
-1. Python 3.7
+1. Python 3
 
 or use the [release executable](https://github.com/Silv3rHorn/autoripy/releases)
 
@@ -51,6 +51,9 @@ Usage:
          Extract all information from the SAM, Security, Software, and System hives.
          autoripy C:\regripper -s H:\Windows\System32\config -c all
 
+         Flush all transaction logs + Extract all information from the SAM, Security, Software, and System hives.
+         autoripy C:\regripper -s H:\Windows\System32\config -c all --flush
+
          Extract file access information from NTUSER.DAT and UsrClass.dat hive (Windows 7 profile)
          autoripy C:\regripper -n H:\Users\Corey -u H:\Users\Corey\AppData\Local\Microsoft\Windows -c user_file
 
@@ -81,6 +84,7 @@ optional arguments:
   -r REPORTDIR, --reportdir REPORTDIR
                         path to the folder to store the output reports.
   -c CAT, --cat CAT     specifies the plugin categories to run. Separate multiple categories with a comma.
+  --flush               flush transaction logs
 ```
 
 ## References
