@@ -116,10 +116,13 @@ def _flush(path):
         try:
             result = yarp_hive.recover_auto(log[0], log[1], log[2])
         except HiveBinException as e:
-            print("Flush failed ({0}}) - {1}".format(e, path))
-            logging.info("Flush failed ({0}}) - {1}".format(e, path))
+            error_msg = e
+            result = None
 
-    if result.recovered:
+    if result is None:
+        print("Flush failed ({0}}) - {1}".format(error_msg, path))
+        logging.info("Flush failed ({0}}) - {1}".format(error_msg, path))
+    elif result.recovered:
         print("Flush successful              - {}".format(path))
         logging.info("Flush successful              - {}".format(path))
         outfile = os.path.join(path)
