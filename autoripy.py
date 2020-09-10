@@ -120,7 +120,7 @@ def _flush(path):
             result = None
 
     if result is None:
-        print("Flush failed ({0}}) - {1}".format(error_msg, path))
+        print("Flush failed ({0}) - {1}".format(error_msg, path))
         logging.info("Flush failed ({0}}) - {1}".format(error_msg, path))
     elif result.recovered:
         print("Flush successful              - {}".format(path))
