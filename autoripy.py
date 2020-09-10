@@ -10,6 +10,7 @@ import plugin_selector as ps
 
 from datetime import datetime as dt
 from yarp import Registry
+from yarp.RegistryFile import HiveBinException
 
 LOG_FILE = ''
 
@@ -112,7 +113,11 @@ def _flush(path):
                 log.append(None)
             else:
                 log.append(open(log_path, 'rb'))
-        result = yarp_hive.recover_auto(log[0], log[1], log[2])
+        try:
+            result = yarp_hive.recover_auto(log[0], log[1], log[2])
+        except HiveBinException as e:
+            print("Flush failed ({0}}) - {1}".format(e, path))
+            logging.info("Flush failed ({0}}) - {1}".format(e, path))
 
     if result.recovered:
         print("Flush successful              - {}".format(path))
