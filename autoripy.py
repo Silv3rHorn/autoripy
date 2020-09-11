@@ -105,23 +105,24 @@ def _flush(path):
         return 1
 
     with open(path, 'rb') as hive:
-        yarp_hive = Registry.RegistryHive(hive)
-
         log = []
-        for log_path in log_paths:
-            if log_path is None:
-                log.append(None)
-            else:
-                log.append(open(log_path, 'rb'))
         try:
+            yarp_hive = Registry.RegistryHive(hive)
+
+            for log_path in log_paths:
+                if log_path is None:
+                    log.append(None)
+                else:
+                    log.append(open(log_path, 'rb'))
+
             result = yarp_hive.recover_auto(log[0], log[1], log[2])
         except HiveBinException as e:
             error_msg = e
             result = None
 
     if result is None:
-        print("Flush failed ({0}) - {1}".format(error_msg, path))
-        logging.info("Flush failed ({0}}) - {1}".format(error_msg, path))
+        print("Flush failed (HiveBinException: {0}) - {1}".format(error_msg, path))
+        logging.info("Flush failed (HiveBinException: {0}) - {1}".format(error_msg, path))
     elif result.recovered:
         print("Flush successful              - {}".format(path))
         logging.info("Flush successful              - {}".format(path))
