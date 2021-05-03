@@ -33,7 +33,7 @@ OS = ["General Information about the Operating System and its Configuration",
       [None, 'system', 'pagefile'],
       [None, 'system', 'hibernate'],  # removed in Regripper3.0
       [None, 'system', 'processor_architecture'],
-      [None, 'system', 'ScanButton'],  # modified 2021-05-03
+      [None, 'system', 'crashcontrol'],  # removed and replaced by ScanButton 2021-05-03
       [None, 'software', 'regback'],  # removed in Regripper3.0
       [None, 'software', 'ctrlpnl'],  # removed in Regripper3.0
       [None, 'software', 'banner'],  # removed in Regripper3.0
