@@ -33,12 +33,12 @@ OS = ["General Information about the Operating System and its Configuration",
       [None, 'system', 'pagefile'],
       [None, 'system', 'hibernate'],  # removed in Regripper3.0
       [None, 'system', 'processor_architecture'],
-      [None, 'system', 'crashcontrol'],
+      [None, 'system', 'ScanButton'],  # modified 2021-05-03
       [None, 'software', 'regback'],  # removed in Regripper3.0
       [None, 'software', 'ctrlpnl'],  # removed in Regripper3.0
       [None, 'software', 'banner'],  # removed in Regripper3.0
       [None, 'system', 'nolmhash'],  # removed in Regripper3.0
-      [None, 'system', 'netlogon'],  # added 20190414
+      [None, 'system', 'netlogon'],  # added 2019-04-14
       [None, 'software', 'susclient'],
       [None, 'software', 'gpohist']]
 
@@ -140,7 +140,8 @@ EXECUTION = ["Program Execution Information",
              [None, 'ntuser', 'mixer'],
              [None, 'ntuser', 'runvirtual'],  # added 2020-08-25
              [None, 'ntuser', 'appcompatflags'],
-             [None, 'ntuser', 'jumplistdata']]  # added 2018-07-15
+             [None, 'ntuser', 'jumplistdata'],  # added 2018-07-15
+             [None, 'ntuser', 'heidisql']]  # added 2021-05-03
 
 AUTORUNS = ["Autostart Locations Information",
             u"08_autoruns_information.txt",
@@ -216,6 +217,8 @@ MALWARE = ["Malware Indicators",
            [None, 'software', 'wsh_settings'],  # added 2018-09-29
            [None, 'software', 'scriptleturl'],  # added 2020-08-25
            [None, 'software', 'injectdll64'],  # added 2020-08-25
+           [None, 'software', 'outlook_homepage'],  # added 2021-05-03
+           [None, 'ntuser', 'outlook_homepage'],  # added 2021-05-03
            [None, 'ntuser', 'injectdll64'],  # added 2020-08-25
            [None, 'ntuser', 'cpldontload'],  # removed in Regripper3.0
            [None, 'ntuser', 'fileless'],
