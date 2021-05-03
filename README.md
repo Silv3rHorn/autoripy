@@ -46,7 +46,7 @@ Supported Categories:
          user_network    gets User Account Network Activity
          user_file       gets User Account File/Folder Access Activity
          user_virtual    gets User Account Virtualization Access Activity
-         comm            Communication Software Information
+         comm            gets Communication Software Information
 
 Usage:
          Extract all information from the SAM, Security, Software, and System hives.
