@@ -50,20 +50,21 @@ USERS = ["User Account Information",
 
 SOFTWARE = ["Installed Software Information",
             u"03_installed_software_information.txt",
-            [None, 'software', 'updates'],  # removed from Regripper3.0, added 2017-12-22
+            [None, 'software', 'updates'],  # removed in Regripper3.0, added 2017-12-22
             [None, 'software', 'uninstall'],
             [None, 'software', 'apppaths'],
             [None, 'software', 'installedcomp'],  # removed in Regripper3.0
             [None, 'software', 'msis'],
             [None, 'software', 'product'],  # removed in Regripper3.0
             [None, 'software', 'installer'],
+            [None, 'software', 'ddpe'],  # added 2024-01-28
             ["Installed Software Settings", 'software', 'execpolicy'],  # added 2018-07-15
             ["Installed Software Settings", 'software', 'powershellcore'],  # added 2020-08-25
             ["Installed Software Settings", 'software', 'logmein'],  # removed in Regripper3.0, added 2017-12-22
             ["Installed Software Settings", 'software', 'teamviewer'],  # removed in Regripper3.0, added 2017-12-22
             [None, 'software', 'clsid'],
             # [None, 'software', 'assoc'],  # removed in Regripper3.0 (bug)
-            # [None, 'usrclass', 'assoc'],  # removed from Regripper3.0, added 2018-01-30 (bug)
+            # [None, 'usrclass', 'assoc'],  # removed in Regripper3.0, added 2018-01-30 (bug)
             # [None, 'ntuser', 'fileexts'],  # removed in Regripper3.0 (bug)
             [None, 'ntuser', 'appassoc'],  # added 2019-07-06
             [None, 'ntuser', 'apppaths'],  # added 2020-08-25
@@ -93,6 +94,7 @@ NETWORK = ["Networking Configuration Information",
            [None, 'system', 'rdpport'],
            [None, 'system', 'rdpnla'],  # removed in Regripper3.0, added 2017-12-22
            [None, 'system', 'remoteaccess'],  # added 2017-12-22
+           [None, 'system', 'portproxy'],  # added 2024-01-28
            [None, 'software', 'sql_lastconnect']]  # removed in Regripper3.0
 
 STORAGE = ["Storage information",
@@ -168,6 +170,7 @@ AUTORUNS = ["Autostart Locations Information",
             [None, 'software', 'psscript'],  # added 2017-12-22
             [None, 'software', 'silentprocessexit'],  # removed in Regripper3.0, added 2018-06-07
             [None, 'software', 'appkeys'],  # added 2018-09-29
+            [None, 'software', 'exefile'],  # added 2024-01-28
             [None, 'system', 'appcertdlls'],
             [None, 'system', 'safeboot'],  # removed in Regripper3.0
             [None, 'system', 'dllsearch'],  # removed in Regripper3.0
@@ -183,13 +186,15 @@ AUTORUNS = ["Autostart Locations Information",
             [None, 'ntuser', 'psscript'],  # added 2020-08-25
             [None, 'ntuser', 'pendinggpos'],  # added 2020-08-25
             [None, 'usrclass', 'appx'],  # added 2020-08-25
-            [None, 'usrclass', 'cmd_shell_u']]  # removed in Regripper3.0
+            [None, 'usrclass', 'cmd_shell_u'],  # removed in Regripper3.0
+            [None, 'usrclass', 'exefile']]  # added 2024-01-28
 
 LOG = ["Logging Information",
        u"09_log_information.txt",
        [None, 'software', 'mrt'],  # removed in Regripper3.0
        [None, 'security', 'auditpol'],
        [None, 'security', 'auditpol_xp'],  # removed in Regripper3.0, added 2017-12-22
+       [None, 'system', 'disableeventlog'],  # added 2024-01-28
        [None, 'system', 'eventlog'],  # removed in Regripper3.0
        [None, 'system', 'eventlogs'],  # removed in Regripper3.0
        [None, 'software', 'winevt'],  # removed in Regripper3.0
@@ -263,6 +268,7 @@ USER_CONFIG = ["User Account Configuration Information",
                [None, 'ntuser', 'user_win'],  # removed in Regripper3.0
                [None, 'ntuser', 'gpohist'],
                [None, 'ntuser', 'disablemru'],  # added 2018-08-11
+               [None, 'ntuser', 'disableuserassist'],  # added 2024-01-28
                [None, 'ntuser', 'bitbucket_user'],  # removed in Regripper3.0, added 2017-12-22
                [None, 'ntuser', 'filehistory'],  # removed in Regripper3.0, added 2017-12-22
                [None, 'ntuser', 'printermru'],  # removed in Regripper3.0, added 2017-12-22
@@ -310,6 +316,7 @@ USER_FILE = ["User Account File/Folder Access Activity",
              [None, 'ntuser', 'shellbags'],
              [None, 'ntuser', 'shellbags_xp'],  # removed in Regripper3.0, added 2017-12-22
              [None, 'ntuser', 'itempos'],  # removed in Regripper3.0
+             [None, 'ntuser', 'iconlayouts'],  # added 2024-01-28
              [None, 'ntuser', 'comdlg32'],
              [None, 'ntuser', 'recentdocs'],
              [None, 'ntuser', 'winzip'],
