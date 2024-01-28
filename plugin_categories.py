@@ -57,11 +57,11 @@ SOFTWARE = ["Installed Software Information",
             [None, 'software', 'msis'],
             [None, 'software', 'product'],  # removed in Regripper3.0
             [None, 'software', 'installer'],
-            [None, 'software', 'ddpe'],  # added 2024-01-28
             ["Installed Software Settings", 'software', 'execpolicy'],  # added 2018-07-15
             ["Installed Software Settings", 'software', 'powershellcore'],  # added 2020-08-25
             ["Installed Software Settings", 'software', 'logmein'],  # removed in Regripper3.0, added 2017-12-22
             ["Installed Software Settings", 'software', 'teamviewer'],  # removed in Regripper3.0, added 2017-12-22
+            ["Installed Software Settings", 'software', 'ddpe'],  # added 2024-01-28
             [None, 'software', 'clsid'],
             # [None, 'software', 'assoc'],  # removed in Regripper3.0 (bug)
             # [None, 'usrclass', 'assoc'],  # removed in Regripper3.0, added 2018-01-30 (bug)
