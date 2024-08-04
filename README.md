@@ -19,8 +19,6 @@ in `plugin_categories.py` without programming knowledge.
 2. yarp - `pip3 install https://github.com/msuhanov/yarp/archive/1.0.31.tar.gz`
 
 or use the [release executable](https://github.com/Silv3rHorn/autoripy/releases)
-   
-Recommendation: Copy the plugin files in `deprecatedRR28Plugins` to your `RegRipper3.0\plugins`
 
 ## Usage
 ```bash
@@ -91,5 +89,5 @@ optional arguments:
 ```
 
 ## References
-1. [Regripper](https://github.com/keydet89/RegRipper3.0)
+1. [Regripper](https://github.com/keydet89/RegRipper4.0)
 2. [Unleasing autorip](http://journeyintoir.blogspot.sg/2013/05/unleashing-autorip.html)
